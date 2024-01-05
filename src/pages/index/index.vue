@@ -22,18 +22,25 @@
       :type="state.type"
       :cover="state.cover"
     />
+    <div>
+      <span v-if="pageLoading">测试pinia...</span>
+    </div>
   </view>
 </template>
 
 <script setup>
-import { reactive, toRefs, ref } from "vue";
+import { reactive, toRefs, ref, computed } from "vue";
 import { useReady, hideLoading, useReachBottom } from "@tarojs/taro";
 import { loginApi, getDemandOrderPage } from "@/api/home";
 import { showLoading } from "@/utils/tips";
+
+import { useAppStore } from "@/store/modules/app";
 // import { Dongdong } from "@nutui/icons-vue-taro";
 
+const appStore = useAppStore();
 const listData = ref([]);
 const loadingFlag = ref(false);
+const pageLoading = computed(() => appStore.getPageLoading);
 
 const state = reactive({
   msg: "欢迎使用 NutUI4.0 开发小程序",
@@ -44,6 +51,10 @@ const state = reactive({
 });
 
 const handleClick = (type, msg, cover = false) => {
+  appStore.setPageLoading(true);
+  setTimeout(() => {
+    appStore.setPageLoading(false);
+  }, 2000);
   loginApi({
     phoneOrName: "izYHnTliv6HygUTJGklsew%3D%3D",
     pwd: "Yre1zUeO9rG20o2U1wAgGw%3D%3D  ",

@@ -41,6 +41,7 @@ const config = {
     '@/utils': path.resolve(__dirname, '..', 'src/utils'),
     '@/http': path.resolve(__dirname, '..', 'src/http'),
     '@/api': path.resolve(__dirname, '..', 'src/api'),
+    '@/store': path.resolve(__dirname, '..', 'src/store'),
   },
   caches: {
     enable: true
