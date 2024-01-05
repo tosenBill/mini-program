@@ -16,7 +16,7 @@ export const useUserStore = defineStore("user", {
   },
   actions: {
     setUserInfo(info: any = "") {
-      this.userInfo = info;
+      this.userInfo = {...info};
       
       setStorageInfo('userInfo', info)
     }

@@ -9,8 +9,6 @@ import AuthorPhoneNumber from "@/components/AuthorPhoneNumber";
 
 const userStore = useUserStore();
 
-console.log("userStore.getUserInfo", userStore.getUserInfo);
-
 const userInfo = computed(() => userStore.getUserInfo);
 
 const showVantDialog = ref(false);
@@ -43,7 +41,7 @@ const confirmLoginOut = () => {
           </div>
           <div class="info">
             <div class="un-login">
-              <div v-if="userInfo.phone">
+              <div v-if="userInfo.phone" class="user-info">
                 <div>{{ userInfo.nickName }}</div>
                 <div>{{ userInfo.phone }}</div>
               </div>
@@ -161,8 +159,10 @@ const confirmLoginOut = () => {
           color: #fff;
           font-size: 24px;
           .un-login {
-            font-size: 40px;
-            font-weight: 500;
+            .user-info {
+              font-size: 36px;
+              font-weight: 300;
+            }
             // .login-btn {
             //   border: none;
             //   background: transparent;

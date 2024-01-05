@@ -2,9 +2,11 @@
 import { ref } from "vue";
 import Taro, { useDidShow } from "@tarojs/taro";
 
+import { useUserStore } from "@/store/modules/user";
 import { authorization } from "@/api/home";
-
 import { setStorageInfo } from "@/hooks/useCache";
+
+const userStore = useUserStore();
 
 const loginCode = ref("");
 
@@ -24,10 +26,9 @@ const taroLogin = async ({ encryptedData, iv }) => {
       // Taro.reLaunch({url: '/pages/index/index'})
     }
   } catch (error) {
-    console.log("error", error);
     // demo数据
     setTimeout(() => {
-      setStorageInfo("userInfo", {
+      userStore.setUserInfo({
         phone: "155xxxx9161",
         nickName: "Tosen",
         avatar:
@@ -75,6 +76,8 @@ useDidShow(() => {
 
 <style lang="scss">
 .login-btn {
+  font-size: 40px;
+  font-weight: 500;
   border: none;
   background: transparent;
   width: 200px;
