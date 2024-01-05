@@ -1,3 +1,4 @@
+import Taro from '@tarojs/taro'
 /**
  * @description: ContentType
  */
@@ -17,3 +18,12 @@ export enum ContentTypeEnum {
     SUCCESS = "SUCCEED",
     ERROR = 1
   }
+
+  /**
+   * @description 判断 ENV_TYPE
+   */
+  export const GET_ENV_TYPE = Taro.getEnv()
+  // 小程序环境
+  export const IS_MINI_PROGRAM = GET_ENV_TYPE === 'WEAPP'
+  // H5环境
+  export const IS_H5 = GET_ENV_TYPE === 'WEB'

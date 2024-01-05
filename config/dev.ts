@@ -9,6 +9,7 @@ module.exports = {
     devServer: {
       host: "0.0.0.0",
       port: 9999,
+      open:false,
       // 仅在 proxy 中配置的代理前缀， mock-dev-server 才会拦截并 mock
       // doc: https://github.com/pengzhanbo/vite-plugin-mock-dev-server
       proxy: {

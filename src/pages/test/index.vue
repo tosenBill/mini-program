@@ -3,7 +3,7 @@
     <view>
       <img src="" alt="" />
     </view>
-    {{ state.msg }}
+    {{ state.msg }} <Dongdong />
     <view class="btn">
       <nut-button type="primary" @click="handleClick('text', state.msg2, true)"
         >登录</nut-button
@@ -35,6 +35,7 @@ import { loginApi, getDemandOrderPage } from "@/api/home";
 import { showLoading } from "@/utils/tips";
 
 import { useAppStore } from "@/store/modules/app";
+import { Dongdong } from "@nutui/icons-vue-taro";
 
 const appStore = useAppStore();
 const listData = ref([]);
@@ -85,7 +86,7 @@ const getData = async () => {
 };
 
 useReady(() => {
-  // getData();
+  getData();
 });
 </script>
 

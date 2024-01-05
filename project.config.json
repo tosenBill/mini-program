@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "taro-vue3-framwork",
   "description": "taro-vue3-framwork",
-  "appid": "touristappid",
+  "appid": "wxbff509409c85ec72",
   "setting": {
     "urlCheck": true,
     "es6": false,
