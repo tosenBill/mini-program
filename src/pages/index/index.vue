@@ -1,8 +1,8 @@
 <template>
   <view class="index">
-    <view>
+    <!-- <view>
       <img src="" alt="" />
-    </view>
+    </view> -->
     {{ state.msg }}
     <view class="btn">
       <nut-button type="primary" @click="handleClick('text', state.msg2, true)">登录</nut-button>
@@ -83,27 +83,3 @@ useReady(() => {
   // getData();
 });
 </script>
-
-<style lang="scss" scoped>
-.index {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-}
-
-.nut-cell {
-  height: calc(100vh - 400px);
-  overflow: hidden;
-}
-.nut-list-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100px;
-  margin-bottom: 20px;
-  background-color: #f4a8b6;
-  border-radius: 20px;
-}
-</style>

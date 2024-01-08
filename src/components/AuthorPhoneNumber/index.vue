@@ -67,7 +67,7 @@ useDidShow(() => {
   <button class="login-btn" open-type="getPhoneNumber" @getPhoneNumber="getPhoneNumberHandle">登录/注册</button>
 </template>
 
-<!-- <style lang="scss" scoped>
+<style lang="scss">
 .login-btn {
   font-size: 40px;
   font-weight: 500;
@@ -78,4 +78,4 @@ useDidShow(() => {
     border: none;
   }
 }
-</style> -->
+</style>
