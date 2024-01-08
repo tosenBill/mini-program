@@ -5,9 +5,7 @@
     </view>
     {{ state.msg }}
     <view class="btn">
-      <nut-button type="primary" @click="handleClick('text', state.msg2, true)"
-        >登录</nut-button
-      >
+      <nut-button type="primary" @click="handleClick('text', state.msg2, true)">登录</nut-button>
     </view>
     <nut-cell>
       <nut-list :height="50" :listData="listData" @scroll-bottom="handleScroll">
@@ -16,12 +14,7 @@
         </template>
       </nut-list>
     </nut-cell>
-    <nut-toast
-      :msg="state.msg2"
-      v-model:visible="state.show"
-      :type="state.type"
-      :cover="state.cover"
-    />
+    <nut-toast :msg="state.msg2" v-model:visible="state.show" :type="state.type" :cover="state.cover" />
     <div>
       <span v-if="pageLoading">测试pinia...</span>
     </div>
@@ -29,12 +22,12 @@
 </template>
 
 <script setup>
-import { reactive, toRefs, ref, computed } from "vue";
-import { useReady, hideLoading, useReachBottom } from "@tarojs/taro";
-import { loginApi, getDemandOrderPage } from "@/api/home";
-import { showLoading } from "@/utils/tips";
+import { reactive, toRefs, ref, computed } from 'vue';
+import { useReady, hideLoading, useReachBottom } from '@tarojs/taro';
+import { loginApi, getDemandOrderPage } from '@/api/home';
+import { showLoading } from '@/utils/tips';
 
-import { useAppStore } from "@/store/modules/app";
+import { useAppStore } from '@/store/modules/app';
 
 const appStore = useAppStore();
 const listData = ref([]);
@@ -42,9 +35,9 @@ const loadingFlag = ref(false);
 const pageLoading = computed(() => appStore.getPageLoading);
 
 const state = reactive({
-  msg: "欢迎使用 NutUI4.0 开发小程序",
-  msg2: "你成功了～",
-  type: "text",
+  msg: '欢迎使用 NutUI4.0 开发小程序',
+  msg2: '你成功了～',
+  type: 'text',
   show: false,
   cover: false,
 });
@@ -55,14 +48,16 @@ const handleClick = (type, msg, cover = false) => {
     appStore.setPageLoading(false);
   }, 2000);
   loginApi({
-    phoneOrName: "izYHnTliv6HygUTJGklsew%3D%3D",
-    pwd: "Yre1zUeO9rG20o2U1wAgGw%3D%3D  ",
+    phoneOrName: 'izYHnTliv6HygUTJGklsew%3D%3D',
+    pwd: 'Yre1zUeO9rG20o2U1wAgGw%3D%3D  ',
   });
   // state.show = true;
   // state.msg2 = msg;
   // state.type = type;
   // state.cover = cover;
 };
+
+console.log('agcd1');
 
 const handleScroll = () => {
   !loadingFlag.value && getData();
@@ -91,7 +86,7 @@ useReady(() => {
 
 <style lang="scss">
 .index {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
