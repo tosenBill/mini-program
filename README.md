@@ -44,19 +44,28 @@ https://github.com/NervJS/taro#readme
 
 ```
 
-# 克隆项目
+## 克隆项目
 
+```
 git clone https://github.com/tosenBill/mini-program
+```
 
-# 进入项目目录
+## 分支说明
+
+| 分支                  | 描述 |
+| :-------------------- | :--- |
+| @tarojs/cli-init-vue3 | 111  |
+| @tarojs/cli-init-vue4 | 222  |
+
+## 进入项目目录
 
 cd mini-program
 
-# 安装依赖
+## 安装依赖
 
 pnpm install
 
-# 启动服务
+## 启动服务
 
 pnpm dev:weapp
 
