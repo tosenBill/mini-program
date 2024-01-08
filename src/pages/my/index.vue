@@ -1,11 +1,11 @@
 <script setup>
-import { reactive, toRefs, computed, ref } from "vue";
-import Taro, { useDidShow } from "@tarojs/taro";
-import { useUserStore } from "@/store/modules/user";
-import { GET_ENV_TYPE, IS_H5, IS_MINI_PROGRAM } from "@/utils/enums";
-import { My } from "@nutui/icons-vue-taro";
-import defaultAvatar from "@/assets/icon/default-avatar.png";
-import AuthorPhoneNumber from "@/components/AuthorPhoneNumber";
+import { reactive, toRefs, computed, ref } from 'vue';
+import Taro, { useDidShow } from '@tarojs/taro';
+import { useUserStore } from '@/store/modules/user';
+import { GET_ENV_TYPE, IS_H5, IS_MINI_PROGRAM } from '@/utils/enums';
+import { My } from '@nutui/icons-vue-taro';
+import defaultAvatar from '@/assets/icon/default-avatar.png';
+import AuthorPhoneNumber from '@/components/AuthorPhoneNumber';
 
 const userStore = useUserStore();
 
@@ -40,7 +40,7 @@ const confirmLoginOut = () => {
             </nut-avatar>
           </div>
           <div class="info">
-            <div class="un-login">
+            <div class="un-login" v-if="IS_MINI_PROGRAM">
               <div v-if="userInfo.phone" class="user-info">
                 <div>{{ userInfo.nickName }}</div>
                 <div>{{ userInfo.phone }}</div>
@@ -54,9 +54,13 @@ const confirmLoginOut = () => {
                 登录/注册
               </button> -->
             </div>
-            <!-- <div class="name">{{ userInfo && userInfo.name }}</div>
-            <div class="org">所在单位：{{ userInfo && userInfo.orgName }}</div> -->
-            <!-- <div class="rule">角色：设备管理员</div> -->
+            <div v-else>
+              <div v-if="userInfo.phone" class="user-info">
+                <div>{{ userInfo.nickName }}</div>
+                <div>{{ userInfo.phone }}</div>
+              </div>
+              <div v-else class="login-btn">登录/注册</div>
+            </div>
           </div>
         </div>
       </div>
@@ -101,21 +105,14 @@ const confirmLoginOut = () => {
     <footer class="footer" v-if="!IS_MINI_PROGRAM">
       <div class="button-77 login-out" @click="secondConfirm">退出登录</div>
     </footer>
-    <nut-dialog
-      content="这是无标题弹框。"
-      v-model:visible="showVantDialog"
-      @cancel="dialogCancelHandle"
-      @ok="confirmLoginOut"
-    />
+    <nut-dialog content="这是无标题弹框。" v-model:visible="showVantDialog" @cancel="dialogCancelHandle" @ok="confirmLoginOut" />
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .user-center {
   // padding-bottom: constant(safe-area-inset-bottom);
-  padding-bottom: calc(
-    80px + env(safe-area-inset-bottom)
-  ); /* 兼容 iOS >= 11.2 */
+  padding-bottom: calc(80px + env(safe-area-inset-bottom)); /* 兼容 iOS >= 11.2 */
   // padding-bottom: 50px;
   .header {
     position: relative;
@@ -158,19 +155,21 @@ const confirmLoginOut = () => {
         .info {
           color: #fff;
           font-size: 24px;
+          .login-btn {
+            font-size: 40px;
+            font-weight: 500;
+            border: none;
+            background: transparent;
+            width: 200px;
+            &:after {
+              border: none;
+            }
+          }
           .un-login {
             .user-info {
               font-size: 36px;
               font-weight: 300;
             }
-            // .login-btn {
-            //   border: none;
-            //   background: transparent;
-            //   width: 200px;
-            //   &:after {
-            //     border: none;
-            //   }
-            // }
           }
           .name {
             font-size: 32px;
@@ -197,7 +196,7 @@ const confirmLoginOut = () => {
         align-items: center;
         justify-content: center;
         &:not(:last-child)::after {
-          content: "";
+          content: '';
           display: inline-block;
           height: 20px;
           width: 4px;
@@ -280,7 +279,7 @@ const confirmLoginOut = () => {
 
     .button-77:before {
       background-color: rgba(249, 58, 19, 0.32);
-      content: "";
+      content: '';
       display: block;
       height: 100%;
       left: 0;
@@ -295,7 +294,7 @@ const confirmLoginOut = () => {
       background-color: initial;
       background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
       bottom: 4px;
-      content: "";
+      content: '';
       display: block;
       left: 4px;
       overflow: hidden;
@@ -319,12 +318,7 @@ const confirmLoginOut = () => {
     }
 
     .button-77:active:not(:disabled):after {
-      background-image: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.2),
-          rgba(0, 0, 0, 0.2)
-        ),
-        linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+      background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
       bottom: 4px;
       left: 4px;
       right: 4px;
