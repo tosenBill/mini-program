@@ -26,6 +26,9 @@
       "@/utils/*": ["./src/utils/*"],
       "@/http/*": ["./src/http/*"],
       "@/api/*": ["./src/api/*"],
+      "@/store/*": ["./src/store/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/components/*": ["./src/components/*"]
     }
   },
   "include": ["./src", "./types", "components.d.ts"],

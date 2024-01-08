@@ -6,6 +6,7 @@ const config = {
   projectName: 'taro-vue3-framwork',
   date: '2024-1-4',
   designWidth (input) {
+    // 因为 nutui 的设计稿是 375 的 所以将框架的设计尺寸调整为 375
     if (input?.file?.replace(/\\+/g, '/').indexOf('@nutui') > -1) {
       return 375
     }
@@ -41,6 +42,9 @@ const config = {
     '@/utils': path.resolve(__dirname, '..', 'src/utils'),
     '@/http': path.resolve(__dirname, '..', 'src/http'),
     '@/api': path.resolve(__dirname, '..', 'src/api'),
+    '@/store': path.resolve(__dirname, '..', 'src/store'),
+    '@/hooks': path.resolve(__dirname, '..', 'src/hooks'),
+    '@/components': path.resolve(__dirname, '..', 'src/components')
   },
   caches: {
     enable: true

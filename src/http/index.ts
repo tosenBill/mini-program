@@ -1,9 +1,9 @@
-import Axios, {
+  import Axios, {
     type AxiosInstance,
     type AxiosError,
     type AxiosResponse,
     type AxiosRequestConfig
-  } from "axios";
+  } from "taro-axios";
   import { ContentTypeEnum, ResultEnum } from "@/utils/enums";
   import { showFailToast } from '@/utils/tips'
 //   import NProgress from "../progress";
@@ -15,7 +15,7 @@ import Axios, {
       "Content-Type": ContentTypeEnum.JSON
     },
     timeout: 0,
-    baseURL: '',
+    baseURL: 'https://c.jlshuangcheng.com',
     data: {}
   };
   
@@ -51,10 +51,9 @@ import Axios, {
         //   NProgress.done();
           // 与后端协定的返回字段
           const { status, data, errorMessage } = response.data;
+          console.log('response.data', response.data)
           // 判断请求是否成功
-          const isSuccess =
-            Reflect.has(response.data, "status") &&
-            status === ResultEnum.SUCCESS;
+          const isSuccess = response.data && Reflect.has(response.data, "status") && status === ResultEnum.SUCCESS;
           if (isSuccess) {
             return data;
           } else {

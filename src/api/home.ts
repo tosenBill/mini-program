@@ -1,10 +1,9 @@
 import { http } from "@/http";
-
-type ListResult = {
-  code: number;
-  message: string;
-  list: Array<any>;
-};
+interface IauthorRequst {
+  encryptedData: string
+  iv: string
+  code: string
+}
 
 export const loginApi = (params: object): Promise<any> => {
     return http.request({
@@ -24,3 +23,12 @@ export const loginApi = (params: object): Promise<any> => {
       data
     });
   };
+  // 登录授权
+export const authorization = (params: IauthorRequst) => {
+  // const { encryptedData, iv, code } = params
+  return http.request({
+    url: "/user/wx/phone",
+    method: "post",
+    params
+  });
+}

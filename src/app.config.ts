@@ -2,9 +2,9 @@ export default defineAppConfig({
   pages: [
     'pages/index/index',
     'pages/my/index',
+    'pages/test/index',
   ],
   tabBar: {
-    custom: true,
     color: '#7A7E83',
     selectedColor: '#1296db',
     backgroundColor: '#ffffff',
