@@ -112,7 +112,6 @@ Tailwindcss 从 3.0 版本开始默认使用 `JIT` 模式，打包代码不再�
 
 官方文档：https://tailwindcss.com/docs/padding
 
-
 ## License
 
-[MIT license](https://github.com/yulimchen/vue3-h5-template/blob/master/LICENSE).
+[MIT license](https://github.com/tosenBill/mini-program/blob/master/LICENSE).
