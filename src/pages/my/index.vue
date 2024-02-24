@@ -69,7 +69,7 @@ const confirmLoginOut = () => {
       <div :class="styles['header-bar']">
         <div :class="styles['header-bar__item']">
           <!-- <van-icon name="clock-o" /> -->
-          <span :class="styles.desc">待响应 <span :class="styles['count-weight']">1</span></span>
+          <span :class="styles.desc">待响应1 <span :class="styles['count-weight']">1</span></span>
         </div>
         <div :class="styles['header-bar__item']">
           <!-- <van-icon name="cluster-o" /> -->
