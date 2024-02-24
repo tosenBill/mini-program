@@ -115,3 +115,9 @@ Tailwindcss 从 3.0 版本开始默认使用 `JIT` 模式，打包代码不再�
 ## License
 
 [MIT license](https://github.com/tosenBill/mini-program/blob/master/LICENSE).
+
+## QA
+
+### 遇到的问题
+
+1. [taro 3.0 + Vue 中 scoped 在 h5 下生效，在微信小程序中无效 #6662](https://github.com/NervJS/taro/issues/6662)
